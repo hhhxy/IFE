@@ -35,29 +35,25 @@ var aqiData = [
 
   // 方法一：用函数filter
 
-  var arr1=aqiData.filter(function(item,index,array){
-    return (item[1]>60);
-  });
-  arr1.reverse(function(a,b){         //排序 从小到大
-    return a-b;
-  });
-  for (var i = 0; i < arr1.length; i++) {
-    oList.innerHTML+='<li>第'+(i+1)+'名：'+arr1[i][0]+','+arr1[i][1]+'<br/>'
-  }
+  // var arr1=aqiData.filter(function(item,index,array){
+  //   return (item[1]>60);
+  // });
+
 
   // 方法二：查找符合条件，排序，逆序输出
-  // for (var i = 0; i < aqiData.length; i++) {     //找出>60的
-  //   if(aqiData[i][1]>60)
-  //   {
-  //     arr1.push(aqiData[i]);
-  //   }
-  // }
-  // arr1.sort(function(a,b){    //排序 从小到大
-  //   return b-a;
-  // });
-  // for (var a = arr1.length,b=0; a > 0,b<arr1.length; a--,b++) {           //倒序输出
-  //    oList.innerHTML+='<li>第'+(b+1)+'名：'+arr1[a-1][0]+'，'+arr1[a-1][1]+'<br/>';
-  // }
+  var arr1=[];
+  for (var i = 0; i < aqiData.length; i++) {     //找出>60的
+    if(aqiData[i][1]>60)
+    {
+      arr1.push(aqiData[i]);
+    }
+  }
+  arr1.sort(function(a,b){    //排序 从小到大
+    return b-a;
+  });
+  for (var a = arr1.length,b=0; a > 0,b<arr1.length; a--,b++) {           //倒序输出
+     oList.innerHTML+='<li>第'+(b+1)+'名：'+arr1[a-1][0]+'，'+arr1[a-1][1]+'<br/>';
+  }
 })();
 
 </script>
